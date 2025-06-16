@@ -1,0 +1,275 @@
+/* ==============================
+   🎨 Eunseon's Portfolio CSS
+   ============================== */
+
+/* ✅ 1. 변수 선언 */
+:root {
+  --main-color: #304c7a;
+  --accent-color: #6ea8d8;
+  --font-base: 'Nanum Gothic', sans-serif;
+  --text-color: #333;
+  --bg-color: #f0f4f9;
+  --dark-bg: #121212;
+  --dark-text: #eee;
+  --dark-panel: #1e1e1e;
+}
+
+body.dark-mode {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode nav {
+  background: #222;
+}
+
+body.dark-mode .flip-card-back {
+  background: #333;
+  color: var(--dark-text);
+}
+
+body.dark-mode .flip-card-front {
+  background: #222;
+}
+
+body.dark-mode .banner {
+  background: linear-gradient(-45deg, #222, #333, #444, #222);
+}
+
+/* ✅ 2. 기본 설정 */
+body {
+  background: var(--bg-color);
+  font-family: var(--font-base);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  color: var(--main-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ✅ 3. 네비게이션 */
+nav {
+  background: var(--main-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ✅ 4. 프로필 섹션 */
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.profile img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.info p {
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.tags span {
+  background: #d8e2f0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+
+/* ✅ 5. 버튼 효과 */
+button.glow {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-color);
+  transition: all 0.3s ease-in-out;
+}
+
+button.glow:hover {
+  box-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--main-color);
+}
+
+a.underline {
+  position: relative;
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+a.underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease-in-out;
+}
+
+a.underline:hover::after {
+  width: 100%;
+}
+
+/* ✅ 6. 포트폴리오 카드 */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 100%;
+  height: 300px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.flip-card-back {
+  background: var(--main-color);
+  color: white;
+  transform: rotateY(180deg);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* ✅ 7. Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* ✅ 8. 배너 애니메이션 */
+.banner {
+  background: linear-gradient(-45deg, #6ea8d8, #8dc3f7, #b1d0ec, #6ea8d8);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* ✅ 10. 다크모드 버튼 */
+.toggle-darkmode {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.toggle-darkmode:hover {
+  background: var(--main-color);
+}
+
+/* ✅ 11. 반응형 */
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
