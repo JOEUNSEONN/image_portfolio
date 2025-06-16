@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EUNSEON'S WEB PORTFOLIO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Nanum Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: linear-gradient(270deg, #a8c0ff, #faffd1);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    nav {
+      background: rgba(0,0,0,0.6);
+      padding: 1rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    .banner-text {
+      font-size: 2.5rem;
+      color: white;
+      animation: fadeIn 2s ease, typing 4s steps(30, end) 1s forwards;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      display: inline-block;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .profile img {
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .info p {
+      line-height: 1.8;
+      margin: 0.5rem 0;
+    }
+    .button-group button {
+      margin: 1rem 1rem 0 0;
+      padding: 0.7rem 1.5rem;
+      background: #4568dc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(69,104,220,0.5);
+      transition: transform 0.3s;
+    }
+    .button-group button:hover {
+      transform: scale(1.05);
+      text-decoration: underline;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      height: 250px;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .flip-card-back {
+      background-color: #f0f4f9;
+      color: #333;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="banner-text">EUNSEON'S WEB PORTFOLIO</div>
+  </header>
+
+  <nav>
+    <a href="#about">about</a>
+    <a href="#skills">skills</a>
+    <a href="#portfolio">portfolio</a>
+    <a href="#contact">contact</a>
+  </nav>
+
+  <section id="about">
+    <div class="profile">
+      <img src="images/profile.jpg" alt="조은선 프로필" />
+      <div>
+        <h2>조은선</h2>
+        <p><strong>생년월일:</strong> 2003.06.11</p>
+        <p><strong>키워드:</strong> #사진 #열정 #책임</p>
+        <p>끊임없이 배우고 도전하고 싶습니다. 미디어콘텐츠학과에서 경험과 지식, 창의성을 쌓아가며 성장할 수 있는 배경을 만들어 열심히 성장하고 그만큼 보여줄 수 있는 콘텐터가 되고 싶습니다.</p>
+        <div class="button-group">
+          <button>포트폴리오 보기</button>
+          <button>연락하기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>SKILLS & TOOLS</h2>
+
+    <h3>✅ 학력</h3>
+    <p>2022.02 제주중앙고등학교 졸업</p>
+    <p>2022.03 ~ 2023.12 경성대 소프트웨어학과</p>
+    <p>2024.03 ~ 재학중 경성대 미디어콘텐츠학과 (전과)</p>
+
+    <h3>✅ 자격증</h3>
+    <p>2013 한글</p>
+    <p>2014 한컴타자 (한글)</p>
+    <p>2022 포토샵, 일러스트 2급</p>
+
+    <h3>✅ 활동</h3>
+    <p>2022 소프트웨어학과 1학년 과대표</p>
+    <p>2023 소프트웨어학과 2학년 과대표</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>PORTFOLIO - Blender 3D</h2>
+    <div class="gallery">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cafe 1.jpg" alt="카페1" />
+          </div>
+          <div class="flip-card-back">
+            전공 기초설계 수업에서 제작한 감성 카페 초기 모델. 창백하고 은은한 느낌 표현.
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cafe 2.jpg" alt="카페2" />
+          </div>
+          <div class="flip-card-back">
+            감정적인 조도 연출 실험. 색감과 조명으로 분위기를 강조한 컨셉.
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cafe 3.jpg" alt="카페3" />
+          </div>
+          <div class="flip-card-back">
+            3D 공간감 표현에 초점을 맞춘 모델. 좌석 구성과 조화에 집중.
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cafe 4.jpg" alt="카페4" />
+          </div>
+          <div class="flip-card-back">
+            최종 결과물로 전체 콘셉트를 통합하고 조명을 활용한 완성형 모델.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>CONTACT</h2>
+    <p>📧 Email: choes0611@naver.com</p>
+    <p>🐱 GitHub: <a href="https://github.com/joeunseonn">github.com/joeunseonn</a></p>
+    <p>📸 Instagram: <a href="https://instagram.com/wlqrptkwkd">@wlqrptkwkd</a></p>
+  </section>
+</body>
+</html>
